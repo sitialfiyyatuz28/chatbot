@@ -28,7 +28,8 @@ export default function ChatBubble() {
       setLoading(true);
 
       const response = await axios.post(
-        "http://localhost:3000/api/chatbot/ask",
+        // "http://localhost:3000/api/chatbot/ask",
+        `${import.meta.env.VITE_API}/api/chatbot/ask`,
         {
           message: userMessage,
         }
