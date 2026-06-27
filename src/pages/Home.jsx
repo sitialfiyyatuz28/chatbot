@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+
 import {
   MapPin,
   Mountain,
@@ -21,10 +22,12 @@ export default function HomePage() {
     fetchDestinations();
   }, []);
 
+  const API = import.meta.env.VITE_API;
   const fetchDestinations = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/api/destinations"
+        // "http://localhost:3000/api/destinations"
+        `${API}/api/destinations`
       );
 
       if (response.data.success) {
@@ -44,7 +47,8 @@ export default function HomePage() {
         <img
           src={
             destinations?.[0]?.images?.[0]?.image_url
-              ? `http://localhost:3000${destinations[0].images[1].image_url}`
+              // ? `http://localhost:3000${destinations[0].images[1].image_url}`
+              ?`${API}${destinations[0].images[1].image_url}`
               : "https://images.unsplash.com/photo-1506744038136-46273834b3fb"
           }
           alt=""
@@ -123,7 +127,8 @@ export default function HomePage() {
                 <img
                   src={
                     item.images?.[0]?.image_url
-                      ? `http://localhost:3000${item.images[0].image_url}`
+                      // ? `http://localhost:3000${item.images[0].image_url}`
+                      ?`${API}${item.images[0].image_url}`
                       : "https://images.unsplash.com/photo-1506744038136-46273834b3fb"
                   }
                   alt=""
@@ -231,7 +236,8 @@ export default function HomePage() {
             src={
               destinations?.[1]?.images?.[0]
                 ?.image_url
-                ? `http://localhost:3000${destinations[1].images[0].image_url}`
+                // ? `http://localhost:3000${destinations[1].images[0].image_url}`
+                ?`${API}${destinations[1].images[0].image_url}`
                 : "https://images.unsplash.com/photo-1506744038136-46273834b3fb"
             }
             alt=""
