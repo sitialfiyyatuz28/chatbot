@@ -14,7 +14,6 @@ import DetailWisata from "./components/DetailWisata";
 import KecamatanDetail from "./pages/kecamatanDetail";
 import Cibadak from "./pages/kecamatan/Cibadak";
 import Bukitpanenjoan from "./pages/cibadak/bukitpanenjoan";
-import ProfilUser from "./pages/profilUser";
 import Feedback from "./components/FeedbackUser";
 
 import LoginPage from "./pages/loginUser";
