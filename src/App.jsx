@@ -20,6 +20,7 @@ import LoginPage from "./pages/loginUser";
 import RegisterPage from "./pages/registerUser";
 import ForgotPassword from "./pages/forgotPasswordUser";
 import NotFound from "./pages/404";
+import ProfilUser from "./pages/ProfilUser";
 
 // ADMIN
 import AdminNavbar from "./admin/layout/navbarAdmin";
