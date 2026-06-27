@@ -35,13 +35,16 @@ export default function AdminDashboard() {
     latestActivities: [],
   });
 
+  const API = import.meta.env.VITE_API;
+
   // =========================
   // FETCH DASHBOARD
   // =========================
   const fetchDashboard = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:3000/api/dashboard/stats"
+        // "http://localhost:3000/api/dashboard/stats"
+        `${API}/api/dashboard/stats`
       );
 
       setStats({

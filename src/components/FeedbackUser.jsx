@@ -128,6 +128,7 @@ export default function FeedbackPage() {
   const [message, setMessage] = useState("");
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
+  const API = import.meta.env.VITE_API;
 
   const suggestions = useMemo(() => {
     return feedbackData[selectedCategory] || [];
@@ -154,7 +155,8 @@ export default function FeedbackPage() {
       };
 
       const response = await axios.post(
-        "http://localhost:3000/api/feedback",
+        // "http://localhost:3000/api/feedback",
+        `${API}/api/feedback`,
         payload
       );
 

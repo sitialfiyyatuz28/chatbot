@@ -17,6 +17,8 @@ import toast from "react-hot-toast";
 export default function AdminPengaturan() {
   const navigate = useNavigate();
 
+  const API = import.meta.env.VITE_API;
+
   const [loading, setLoading] = useState(false);
 
   const [form, setForm] = useState({
@@ -71,7 +73,8 @@ export default function AdminPengaturan() {
 
       // UPDATE USER
       await axios.put(
-        `http://localhost:3000/api/users/${user.id}`,
+        // `http://localhost:3000/api/users/${user.id}`,
+        `${API}/api/users/${user.id}`,
         {
           nama: form.nama,
           email: form.email,
@@ -82,7 +85,8 @@ export default function AdminPengaturan() {
       // UPDATE PASSWORD
       if (form.password) {
         await axios.put(
-          `http://localhost:3000/api/users/reset-password/${user.id}`,
+          // `http://localhost:3000/api/users/reset-password/${user.id}`,
+          `${API}/api/users/reset-password/${user.id}`,
           {
             password: form.password,
           }

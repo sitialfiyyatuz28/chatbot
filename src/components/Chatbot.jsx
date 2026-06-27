@@ -4,8 +4,10 @@ export default function Chatbot() {
   const [msg, setMsg] = useState("");
   const [reply, setReply] = useState("");
 
+  const API = import.meta.env.VITE_API;
   const sendMessage = async () => {
-    const res = await fetch("http://localhost:5000/chatbot", {
+    // const res = await fetch("http://localhost:5000/chatbot", {
+    const res = await fetch(`${API}/chatbot`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: msg }),

@@ -29,6 +29,7 @@ export default function DestinasiDetail() {
   const [selectedImage, setSelectedImage] =
     useState(0);
 
+  const API = import.meta.env.VITE_API;
   // =========================
   // FETCH DETAIL
   // =========================
@@ -37,7 +38,8 @@ export default function DestinasiDetail() {
       setLoading(true);
 
       const response = await axios.get(
-        `http://localhost:3000/api/destinations/${id}`
+        // `http://localhost:3000/api/destinations/${id}`
+        `${API}/api/destinations/${id}`
       );
 
       if (response.data.success) {
@@ -173,7 +175,8 @@ export default function DestinasiDetail() {
 
               {images.length > 0 ? (
                 <img
-                  src={`http://localhost:3000${images[selectedImage].image_url}`}
+                  // src={`http://localhost:3000${images[selectedImage].image_url}`}
+                  src={`${API}${images[selectedImage].image_url}`}
                   alt={data.name}
                   className="h-[450px] w-full object-cover transition-all duration-300"
                 />
@@ -256,7 +259,8 @@ export default function DestinasiDetail() {
                       }`}
                     >
                       <img
-                        src={`http://localhost:3000${img.image_url}`}
+                        // src={`http://localhost:3000${img.image_url}`}
+                        src={`${API}${img.image_url}`}
                         alt=""
                         className="h-24 w-32 object-cover"
                       />

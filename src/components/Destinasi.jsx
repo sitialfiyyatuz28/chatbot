@@ -26,6 +26,7 @@ export default function DestinasiUser() {
 
   const [selectedImage, setSelectedImage] = useState(0);
 
+  const API = import.meta.env.VITE_API;
   // =========================
   // FETCH DESTINATIONS
   // =========================
@@ -34,7 +35,8 @@ export default function DestinasiUser() {
       setLoading(true);
 
       const response = await axios.get(
-        "http://localhost:3000/api/destinations"
+        // "http://localhost:3000/api/destinations"
+        `${API}/api/destinations`
       );
 
       if (response.data.success) {
@@ -162,7 +164,8 @@ export default function DestinasiUser() {
 
                 const image =
                 images.length > 0
-                  ? `http://localhost:3000${images[0].image_url}`
+                  // ? `http://localhost:3000${images[0].image_url}`
+                  ? `${API}${images[0].image_url}`
                   : null;
 
                 return (
@@ -333,7 +336,8 @@ export default function DestinasiUser() {
                 <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-slate-100">
                   {currentImage ? (
                     <img
-                      src={`http://localhost:3000/${currentImage}`}
+                      // src={`http://localhost:3000/${currentImage}`}
+                      src={`${API}/${currentImage}`}
                       alt={
                         selectedDestination.name
                       }
@@ -394,7 +398,8 @@ export default function DestinasiUser() {
                         }`}
                       >
                         <img
-                          src={`http://localhost:3000/${img}`}
+                          // src={`http://localhost:3000/${img}`}
+                          src={`${API}/${img}`}
                           alt=""
                           className="h-20 w-24 object-cover"
                         />

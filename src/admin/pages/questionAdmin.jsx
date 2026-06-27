@@ -34,7 +34,10 @@ const Textarea = ({ className = "", ...props }) => (
 );
 import { Search, Plus, Pencil, Trash2, Database } from "lucide-react";
 
-const API_URL = "http://localhost:3000/api/knowledge-base";
+const API = import.meta.env.VITE_API;
+
+// const API_URL = "http://localhost:3000/api/knowledge-base";
+const API_URL = `${API}/api/knowledge-base`;
 
 export default function QuestionAdmin() {
   const [data, setData] = useState([]);

@@ -22,6 +22,8 @@ export default function AdminUser() {
 
   const [editId, setEditId] = useState(null);
 
+  const API = import.meta.env.VITE_API;
+
   const [resetPasswordId, setResetPasswordId] =
     useState(null);
 
@@ -39,7 +41,8 @@ export default function AdminUser() {
   const getUsers = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/api/users"
+        // "http://localhost:3000/api/users"
+        `${API}/api/users`
       );
 
       setUsers(response.data);
@@ -67,7 +70,8 @@ export default function AdminUser() {
     try {
       if (editId) {
         await axios.put(
-          `http://localhost:3000/api/users/${editId}`,
+          // `http://localhost:3000/api/users/${editId}`,
+          `${API}/api/users/${editId}`,
           {
             nama: form.nama,
             email: form.email,
@@ -78,7 +82,8 @@ export default function AdminUser() {
         toast.success("User berhasil diupdate");
       } else {
         await axios.post(
-          "http://localhost:3000/api/users",
+          // "http://localhost:3000/api/users",
+          `${API}/api/users`,
           form
         );
 
@@ -125,7 +130,8 @@ export default function AdminUser() {
 
     try {
       await axios.delete(
-        `http://localhost:3000/api/users/${id}`
+        // `http://localhost:3000/api/users/${id}`
+        `${API}/api/users/${id}`
       );
 
       toast.success("User berhasil dihapus");
@@ -140,7 +146,8 @@ export default function AdminUser() {
   const handleResetPassword = async () => {
     try {
       await axios.put(
-        `http://localhost:3000/api/users/reset-password/${resetPasswordId}`,
+        // `http://localhost:3000/api/users/reset-password/${resetPasswordId}`,
+        `${API}/api/users/reset-password/${resetPasswordId}`,
         {
           password: newPassword,
         }

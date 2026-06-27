@@ -15,6 +15,8 @@ export default function ProfileUser() {
 
   const [loading, setLoading] = useState(false);
 
+  const API = import.meta.env.VITE_API;
+
   const [form, setForm] = useState({
     nama: "",
     email: "",
@@ -29,7 +31,8 @@ export default function ProfileUser() {
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        `http://localhost:3000/api/users/${userData.id}`,
+        // `http://localhost:3000/api/users/${userData.id}`,
+        `${API}/api/users/${userData.id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -89,7 +92,8 @@ export default function ProfileUser() {
       }
 
       const res = await axios.put(
-        `http://localhost:3000/api/users/${userData.id}`,
+        // `http://localhost:3000/api/users/${userData.id}`,
+        `${API}/api/users/${userData.id}`,
         payload,
         {
           headers: {

@@ -36,6 +36,8 @@ export default function AdminFeedbackPage() {
     setSelectedMessage("");
   };
 
+  const API = import.meta.env.VITE_API;
+
   // =========================
   // FETCH FEEDBACK
   // =========================
@@ -44,7 +46,8 @@ export default function AdminFeedbackPage() {
       setLoading(true);
 
       const response = await axios.get(
-        "http://localhost:3000/api/feedback"
+        // "http://localhost:3000/api/feedback"
+        `${API}/api/feedback`
       );
 
       console.log(response.data);
@@ -75,7 +78,8 @@ export default function AdminFeedbackPage() {
 
     try {
       await axios.delete(
-        `http://localhost:3000/api/feedback/${id}`
+        // `http://localhost:3000/api/feedback/${id}`
+        `${API}/api/feedback/${id}`
       );
 
       setFeedbacks((prev) =>
@@ -98,7 +102,8 @@ export default function AdminFeedbackPage() {
   const handleUpdateStatus = async (id, status) => {
     try {
       await axios.put(
-        `http://localhost:3000/api/feedback/${id}`,
+        // `http://localhost:3000/api/feedback/${id}`,
+        `${API}/api/feedback/${id}`,
         {
           status,
         }

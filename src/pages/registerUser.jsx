@@ -27,6 +27,8 @@ export default function RegisterPage() {
     confirmPassword: "",
   });
 
+  const API = import.meta.env.VITE_API;
+
   // HANDLE INPUT
   const handleChange = (e) => {
     setForm({
@@ -50,7 +52,8 @@ export default function RegisterPage() {
 
       // KIRIM KE BACKEND
       const response = await axios.post(
-        "http://localhost:3000/api/auth/register",
+        // "http://localhost:3000/api/auth/register",
+        `${API}/api/auth/register`,
         {
           nama: form.nama,
           email: form.email,

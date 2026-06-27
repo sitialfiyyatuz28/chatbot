@@ -12,6 +12,8 @@ export default function LoginPage() {
 
   const [loading, setLoading] = useState(false);
 
+  const API = import.meta.env.VITE_API;
+
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -33,7 +35,8 @@ export default function LoginPage() {
       setLoading(true);
 
       const response = await axios.post(
-        "http://localhost:3000/api/auth/login",
+        // "http://localhost:3000/api/auth/login",
+        `${API}/api/auth/login`,
         form
       );
 

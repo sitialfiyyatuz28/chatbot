@@ -24,6 +24,8 @@ export default function DestinasiAdmin() {
   const [existingImages, setExistingImages] = useState([]);
   const [deletedImages, setDeletedImages] = useState([]);
 
+  const API = import.meta.env.VITE_API;
+
   const [form, setForm] = useState({
     name: "",
     description: "",
@@ -50,7 +52,8 @@ contact_number: "",
       setLoading(true);
 
       const response = await axios.get(
-        "http://localhost:3000/api/destinations"
+        // "http://localhost:3000/api/destinations"
+        `${API}/api/destinations`
       );
 
       if (response.data.success) {
@@ -109,12 +112,14 @@ contact_number: "",
     // gambar lama dari database
     if (
       preview.startsWith(
-        "http://localhost:3000/uploads"
+        // "http://localhost:3000/uploads"
+        `${API}/uploads`
       )
     ) {
       const imageData = existingImages.find(
         (img) =>
-          `http://localhost:3000${img.image_url}` ===
+          // `http://localhost:3000${img.image_url}` ===
+          `${API}${img.image_url}` ===
           preview
       );
 
@@ -193,7 +198,8 @@ contact_number: "",
 
     if (editingId) {
       await axios.put(
-        `http://localhost:3000/api/destinations/${editingId}`,
+        // `http://localhost:3000/api/destinations/${editingId}`,
+        `${API}/api/destinations/${editingId}`,
         formData,
         {
           headers: {
@@ -204,7 +210,8 @@ contact_number: "",
       );
     } else {
       await axios.post(
-        "http://localhost:3000/api/destinations",
+        // "http://localhost:3000/api/destinations",
+        `${API}/api/destinations`,
         formData,
         {
           headers: {
@@ -251,7 +258,8 @@ contact_number: "",
 
     try {
       await axios.delete(
-        `http://localhost:3000/api/destinations/${id}`
+        // `http://localhost:3000/api/destinations/${id}`
+        `${API}/api/destinations/${id}`
       );
 
       fetchDestinations();
@@ -269,7 +277,8 @@ contact_number: "",
   const handleEdit = async (id) => {
   try {
     const response = await axios.get(
-      `http://localhost:3000/api/destinations/${id}`
+      // `http://localhost:3000/api/destinations/${id}`
+      `${API}/api/destinations/${id}`
     );
 
     const data = response.data.data;
@@ -302,7 +311,8 @@ contact_number: data.contact_number || "",
       setPreviewImages(
         data.images.map(
           (img) =>
-            `http://localhost:3000${img.image_url}`
+            // `http://localhost:3000${img.image_url}`
+            `${API}${img.image_url}`
         )
       );
     } else {
