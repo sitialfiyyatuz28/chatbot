@@ -36,12 +36,13 @@ export default function LoginPage() {
 
       const response = await axios.post(
         // "http://localhost:3000/api/auth/login",
-        `${API}/api/auth/login`, {
+        `${API}/api/auth/login`,
+        form,
+        {
           headers: {
             "ngrok-skip-browser-warning": "true",
           }
         },
-        form
       );
 
       // AMBIL DATA

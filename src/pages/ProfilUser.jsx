@@ -32,14 +32,11 @@ export default function ProfileUser() {
 
       const res = await axios.get(
         // `http://localhost:3000/api/users/${userData.id}`,
-        `${API}/api/users/${userData.id}`, {
-          headers: {
-            "ngrok-skip-browser-warning": "true",
-          }
-        },
+        `${API}/api/users/${userData.id}`, 
         {
           headers: {
             Authorization: `Bearer ${token}`,
+            "ngrok-skip-browser-warning": "true",
           },
         }
       );

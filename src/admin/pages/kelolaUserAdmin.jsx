@@ -77,27 +77,28 @@ export default function AdminUser() {
           // `http://localhost:3000/api/users/${editId}`,
           `${API}/api/users/${editId}`,
           {
+            nama: form.nama,
+            email: form.email,
+            role: form.role,
+          },
+          {
             headers: {
               "ngrok-skip-browser-warning": "true",
             }
           },
-          {
-            nama: form.nama,
-            email: form.email,
-            role: form.role,
-          }
         );
 
         toast.success("User berhasil diupdate");
       } else {
         await axios.post(
           // "http://localhost:3000/api/users",
-          `${API}/api/users`, {
+          `${API}/api/users`,
+          form,
+          {
             headers: {
               "ngrok-skip-browser-warning": "true",
             }
           },
-          form
         );
 
         toast.success("User berhasil ditambahkan");
@@ -164,14 +165,15 @@ export default function AdminUser() {
     try {
       await axios.put(
         // `http://localhost:3000/api/users/reset-password/${resetPasswordId}`,
-        `${API}/api/users/reset-password/${resetPasswordId}`, {
+        `${API}/api/users/reset-password/${resetPasswordId}`,
+        {
+          password: newPassword,
+        },
+        {
           headers: {
             "ngrok-skip-browser-warning": "true",
           }
         },
-        {
-          password: newPassword,
-        }
       );
 
       toast.success("Password berhasil direset");

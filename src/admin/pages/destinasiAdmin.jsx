@@ -117,7 +117,12 @@ contact_number: "",
     if (
       preview.startsWith(
         // "http://localhost:3000/uploads"
-        `${API}/uploads`
+        `${API}/uploads`,
+        {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          },
+        }
       )
     ) {
       const imageData = existingImages.find(

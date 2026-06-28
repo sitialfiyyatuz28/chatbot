@@ -110,14 +110,14 @@ export default function AdminFeedbackPage() {
   const handleUpdateStatus = async (id, status) => {
     try {
       await axios.put(
-        // `http://localhost:3000/api/feedback/${id}`,
-        `${API}/api/feedback/${id}`, {
+        `${API}/api/feedback/${id}`,
+        {
+          status,
+        },
+        {
           headers: {
             "ngrok-skip-browser-warning": "true",
           },
-        },
-        {
-          status,
         }
       );
 

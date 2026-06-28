@@ -55,15 +55,15 @@ export default function RegisterPage() {
         // "http://localhost:3000/api/auth/register",
         `${API}/api/auth/register`,
         {
+          nama: form.nama,
+          email: form.email,
+          password: form.password,
+        },
+        {
           headers: {
             "ngrok-skip-browser-warning": "true",
           }
         },
-        {
-          nama: form.nama,
-          email: form.email,
-          password: form.password,
-        }
       );
 
       toast.success(

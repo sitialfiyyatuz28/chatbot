@@ -156,12 +156,13 @@ export default function FeedbackPage() {
 
       const response = await axios.post(
         // "http://localhost:3000/api/feedback",
-        `${API}/api/feedback`, {
+        `${API}/api/feedback`,
+        payload,
+        {
           headers: {
             "ngrok-skip-browser-warning": "true",
           }
         },
-        payload
       );
 
       if (response.data.success) {
