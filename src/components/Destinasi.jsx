@@ -26,7 +26,12 @@ export default function DestinasiUser() {
 
   const [selectedImage, setSelectedImage] = useState(0);
 
-  const API = import.meta.env.VITE_API;
+  const API = axios.create({
+    baseURL: import.meta.env.VITE_API,
+    headers: {
+      "ngrok-skip-browser-warning": "true"
+    }
+  });
   console.log("API = ", API);
   // =========================
   // FETCH DESTINATIONS

@@ -35,7 +35,12 @@ export default function AdminDashboard() {
     latestActivities: [],
   });
 
-  const API = import.meta.env.VITE_API;
+  const API = axios.create({
+    baseURL: import.meta.env.VITE_API,
+    headers: {
+      "ngrok-skip-browser-warning": "true"
+    }
+  });
 
   // =========================
   // FETCH DASHBOARD
