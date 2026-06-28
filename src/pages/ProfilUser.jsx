@@ -32,7 +32,11 @@ export default function ProfileUser() {
 
       const res = await axios.get(
         // `http://localhost:3000/api/users/${userData.id}`,
-        `${API}/api/users/${userData.id}`,
+        `${API}/api/users/${userData.id}`, {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          }
+        },
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -93,10 +97,11 @@ export default function ProfileUser() {
 
       const res = await axios.put(
         // `http://localhost:3000/api/users/${userData.id}`,
-        `${API}/api/users/${userData.id}`,
+        `${API}/api/users/${userData.id}`, 
         payload,
         {
           headers: {
+            "ngrok-skip-browser-warning": "true",
             Authorization: `Bearer ${token}`,
           },
         }

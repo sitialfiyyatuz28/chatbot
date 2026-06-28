@@ -42,7 +42,11 @@ export default function AdminUser() {
     try {
       const response = await axios.get(
         // "http://localhost:3000/api/users"
-        `${API}/api/users`
+        `${API}/api/users`, {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          },
+        }
       );
 
       setUsers(response.data);
@@ -73,6 +77,11 @@ export default function AdminUser() {
           // `http://localhost:3000/api/users/${editId}`,
           `${API}/api/users/${editId}`,
           {
+            headers: {
+              "ngrok-skip-browser-warning": "true",
+            }
+          },
+          {
             nama: form.nama,
             email: form.email,
             role: form.role,
@@ -83,7 +92,11 @@ export default function AdminUser() {
       } else {
         await axios.post(
           // "http://localhost:3000/api/users",
-          `${API}/api/users`,
+          `${API}/api/users`, {
+            headers: {
+              "ngrok-skip-browser-warning": "true",
+            }
+          },
           form
         );
 
@@ -131,7 +144,11 @@ export default function AdminUser() {
     try {
       await axios.delete(
         // `http://localhost:3000/api/users/${id}`
-        `${API}/api/users/${id}`
+        `${API}/api/users/${id}`, {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          }
+        }
       );
 
       toast.success("User berhasil dihapus");
@@ -147,7 +164,11 @@ export default function AdminUser() {
     try {
       await axios.put(
         // `http://localhost:3000/api/users/reset-password/${resetPasswordId}`,
-        `${API}/api/users/reset-password/${resetPasswordId}`,
+        `${API}/api/users/reset-password/${resetPasswordId}`, {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          }
+        },
         {
           password: newPassword,
         }

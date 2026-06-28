@@ -39,7 +39,11 @@ export default function DestinasiDetail() {
 
       const response = await axios.get(
         // `http://localhost:3000/api/destinations/${id}`
-        `${API}/api/destinations/${id}`
+        `${API}/api/destinations/${id}`, {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          },
+        }
       );
 
       if (response.data.success) {

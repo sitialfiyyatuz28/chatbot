@@ -74,7 +74,11 @@ export default function AdminPengaturan() {
       // UPDATE USER
       await axios.put(
         // `http://localhost:3000/api/users/${user.id}`,
-        `${API}/api/users/${user.id}`,
+        `${API}/api/users/${user.id}`, {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          }
+        },
         {
           nama: form.nama,
           email: form.email,
@@ -86,7 +90,11 @@ export default function AdminPengaturan() {
       if (form.password) {
         await axios.put(
           // `http://localhost:3000/api/users/reset-password/${user.id}`,
-          `${API}/api/users/reset-password/${user.id}`,
+          `${API}/api/users/reset-password/${user.id}`, {
+            headers: {
+              "ngrok-skip-browser-warning": "true",
+            }
+          },
           {
             password: form.password,
           }

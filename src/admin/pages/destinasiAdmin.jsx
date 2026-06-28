@@ -53,7 +53,11 @@ contact_number: "",
 
       const response = await axios.get(
         // "http://localhost:3000/api/destinations"
-        `${API}/api/destinations`
+        `${API}/api/destinations`, {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          },
+        }
       );
 
       if (response.data.success) {
@@ -203,8 +207,10 @@ contact_number: "",
         formData,
         {
           headers: {
+            "ngrok-skip-browser-warning": "true",
             "Content-Type":
               "multipart/form-data",
+
           },
         }
       );
@@ -215,6 +221,7 @@ contact_number: "",
         formData,
         {
           headers: {
+            "ngrok-skip-browser-warning": "true",
             "Content-Type":
               "multipart/form-data",
           },
@@ -259,7 +266,11 @@ contact_number: "",
     try {
       await axios.delete(
         // `http://localhost:3000/api/destinations/${id}`
-        `${API}/api/destinations/${id}`
+        `${API}/api/destinations/${id}`, {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          },
+        }
       );
 
       fetchDestinations();
@@ -278,7 +289,11 @@ contact_number: "",
   try {
     const response = await axios.get(
       // `http://localhost:3000/api/destinations/${id}`
-      `${API}/api/destinations/${id}`
+      `${API}/api/destinations/${id}`, {
+        headers: {
+          "ngrok-skip-browser-warning": "true",
+        },
+      }
     );
 
     const data = response.data.data;

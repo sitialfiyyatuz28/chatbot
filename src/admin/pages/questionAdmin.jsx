@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import Ngrok from "Ngrok";
+import Ngrok from "../../API"
 import { motion } from "framer-motion";
 // Menggunakan Tailwind biasa tanpa shadcn/ui
 const Card = ({ children, className = "" }) => (
@@ -55,7 +56,8 @@ export default function QuestionAdmin() {
   const fetchData = async () => {
     try {
       setLoading(true);
-      const res = await axios.get(API_URL);
+      // const res = await Ngrok.get(API_URL);
+      const res = await Ngrok.get("/api/knowledge-base");
       setData(res.data.data || []);
     } catch (error) {
       console.error(error);
@@ -96,10 +98,10 @@ export default function QuestionAdmin() {
 
     try {
       if (editingId) {
-        await axios.put(`${API_URL}/${editingId}`, form);
+        await Ngrok.put(`/api/knowledge-base/${editingId}`, form);
         alert("Data berhasil diperbarui");
       } else {
-        await axios.post(API_URL, form);
+        await Ngrok.post("/api/knowledge-base", form);
         alert("Data berhasil ditambahkan");
       }
 
@@ -127,7 +129,7 @@ export default function QuestionAdmin() {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`${API_URL}/${id}`);
+      await Ngrok.delete(`/api/knowledge-base/${id}`);
       alert("Data berhasil dihapus");
       fetchData();
     } catch (error) {

@@ -29,7 +29,11 @@ export default function ChatBubble() {
 
       const response = await axios.post(
         // "http://localhost:3000/api/chatbot/ask",
-        `${import.meta.env.VITE_API}/api/chatbot/ask`,
+        `${import.meta.env.VITE_API}/api/chatbot/ask`, {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          },
+        },
         {
           message: userMessage,
         }

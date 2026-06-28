@@ -9,7 +9,8 @@ export default function Chatbot() {
     // const res = await fetch("http://localhost:5000/chatbot", {
     const res = await fetch(`${API}/chatbot`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json",
+                  "ngrok-skip-browser-warning": "true" },
       body: JSON.stringify({ message: msg }),
     });
 

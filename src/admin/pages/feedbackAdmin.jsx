@@ -47,7 +47,11 @@ export default function AdminFeedbackPage() {
 
       const response = await axios.get(
         // "http://localhost:3000/api/feedback"
-        `${API}/api/feedback`
+        `${API}/api/feedback`, {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          },
+        }
       );
 
       console.log(response.data);
@@ -79,7 +83,11 @@ export default function AdminFeedbackPage() {
     try {
       await axios.delete(
         // `http://localhost:3000/api/feedback/${id}`
-        `${API}/api/feedback/${id}`
+        `${API}/api/feedback/${id}`, {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          },
+        }
       );
 
       setFeedbacks((prev) =>
@@ -103,7 +111,11 @@ export default function AdminFeedbackPage() {
     try {
       await axios.put(
         // `http://localhost:3000/api/feedback/${id}`,
-        `${API}/api/feedback/${id}`,
+        `${API}/api/feedback/${id}`, {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          },
+        },
         {
           status,
         }

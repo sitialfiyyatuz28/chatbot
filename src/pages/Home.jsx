@@ -27,7 +27,11 @@ export default function HomePage() {
     try {
       const response = await axios.get(
         // "http://localhost:3000/api/destinations"
-        `${API}/api/destinations`
+        `${API}/api/destinations`, {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          },
+        }
       );
 
       if (response.data.success) {

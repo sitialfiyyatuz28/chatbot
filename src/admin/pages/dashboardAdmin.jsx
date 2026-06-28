@@ -35,12 +35,7 @@ export default function AdminDashboard() {
     latestActivities: [],
   });
 
-  const API = axios.create({
-    baseURL: import.meta.env.VITE_API,
-    headers: {
-      "ngrok-skip-browser-warning": "true"
-    }
-  });
+  const API = import.meta.env.VITE_API;
 
   // =========================
   // FETCH DASHBOARD
@@ -49,7 +44,11 @@ export default function AdminDashboard() {
     try {
       const res = await axios.get(
         // "http://localhost:3000/api/dashboard/stats"
-        `${API}/api/dashboard/stats`
+        `${API}/api/dashboard/stats`, {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          },
+        }
       );
 
       setStats({

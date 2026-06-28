@@ -26,12 +26,7 @@ export default function DestinasiUser() {
 
   const [selectedImage, setSelectedImage] = useState(0);
 
-  const API = axios.create({
-    baseURL: import.meta.env.VITE_API,
-    headers: {
-      "ngrok-skip-browser-warning": "true"
-    }
-  });
+  const API = import.meta.env.VITE_API;
   console.log("API = ", API);
   // =========================
   // FETCH DESTINATIONS
@@ -42,7 +37,11 @@ export default function DestinasiUser() {
 
       const response = await axios.get(
         // "http://localhost:3000/api/destinations"
-        `${API}/api/destinations`
+        `${API}/api/destinations`, {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          },
+        }
       );
 
       if (response.data.success) {
