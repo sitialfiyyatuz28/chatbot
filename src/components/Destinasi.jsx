@@ -27,6 +27,7 @@ export default function DestinasiUser() {
   const [selectedImage, setSelectedImage] = useState(0);
 
   const API = import.meta.env.VITE_API;
+  console.log("API = ", API);
   // =========================
   // FETCH DESTINATIONS
   // =========================
